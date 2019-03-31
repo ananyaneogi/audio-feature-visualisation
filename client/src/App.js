@@ -92,13 +92,6 @@ class App extends Component {
           ))
       }
 
-      const chartContent = (
-          <React.Fragment>
-            <h5>{this.state.selectedTrack.name} by {this.state.selectedTrack.primary_artist}</h5>
-            <MusicChart ref={this.child} labels={this.state.chartLabels} values={this.state.chartValue} />
-          </React.Fragment>
-      );
-
     return (
         <div className="App">
             <div className="container">
@@ -113,7 +106,8 @@ class App extends Component {
                 </ul>
                 {this.state.showLoading ? <div className="loading-text"> Wait for it...<span role="img" aria-label="dancing figures">💃💃💃</span></div>: ''}
                 <div style={{minHeight: '480px', margin: '50px auto', maxWidth:'1000px', width:'100%'}}>
-                    {this.state.showChart ?  chartContent : ''}
+                    {this.state.showChart ? <h5>{this.state.selectedTrack.name} by {this.state.selectedTrack.primary_artist}</h5> : ''}
+                    {this.state.showChart ? <MusicChart ref={this.child} labels={this.state.chartLabels} values={this.state.chartValue} /> : ''}
                 </div>
             </div>
         </div>
