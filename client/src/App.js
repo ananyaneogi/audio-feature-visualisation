@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
-import SChart from './components/SChart'
+import MusicChart from './components/MusicChart'
 
 class App extends Component {
     constructor(props) {
@@ -12,74 +12,9 @@ class App extends Component {
             searchResults: '',
             chartValue: '',
             chartLabels: '',
-            // searchResults: [
-            //     {
-            //         "id": "5WvAo7DNuPRmk4APhdPzi8",
-            //         "name": "No Brainer",
-            //         "primary_artist": "DJ Khaled"
-            //     },
-            //     {
-            //         "id": "3DXncPQOG4VBw3QHh3S817",
-            //         "name": "I'm the One (feat. Justin Bieber, Quavo, Chance the Rapper & Lil Wayne)",
-            //         "primary_artist": "DJ Khaled"
-            //     },
-            //     {
-            //         "id": "1OAh8uOEOvTDqkKFsKksCi",
-            //         "name": "Wild Thoughts (feat. Rihanna & Bryson Tiller)",
-            //         "primary_artist": "DJ Khaled"
-            //     },
-            //     {
-            //         "id": "6u5M4jPpYkoRV4vVHDQvkd",
-            //         "name": "All I Do Is Win",
-            //         "primary_artist": "DJ Khaled"
-            //     },
-            //     {
-            //         "id": "5iqrbO0fhuLMiy9tYGanv6",
-            //         "name": "C'est La Vie",
-            //         "primary_artist": "Khaled"
-            //     },
-            //     {
-            //         "id": "1W6wxOOYyJyyok8fqYSZ3m",
-            //         "name": "Top Off",
-            //         "primary_artist": "DJ Khaled"
-            //     },
-            //     {
-            //         "id": "22mQXNE0nCuWq4yOwcadIn",
-            //         "name": "Dinero",
-            //         "primary_artist": "Jennifer Lopez"
-            //     },
-            //     {
-            //         "id": "608a1wIsSd5KzMEqm1O7w3",
-            //         "name": "I'm On One",
-            //         "primary_artist": "DJ Khaled"
-            //     }
-            // ],
-            
-            // chartLabels: [
-            //     "danceability💃",
-            //     "energy💃",
-            //     "speechiness💃",
-            //     "acousticness💃",
-            //     "instrumentalness💃",
-            //     "liveness💃",
-            //     "valence💃"
-            // ],
-            // chartValue: [
-            //     0.552,
-            //     0.76,
-            //     0.342,
-            //     0.0733,
-            //     0,
-            //     0.0865,
-            //     0.639
-            // ],
             showChart: false,
             showLoading: false
         }
-    }
-
-    componentDidMount() {
-
     }
 
     handleInputChange = (e) => {
@@ -157,6 +92,13 @@ class App extends Component {
           ))
       }
 
+      const chartContent = (
+          <React.Fragment>
+            <h5>{this.state.selectedTrack.name} by {this.state.selectedTrack.primary_artist}</h5>
+            <MusicChart ref={this.child} labels={this.state.chartLabels} values={this.state.chartValue} />
+          </React.Fragment>
+      );
+
     return (
         <div className="App">
             <div className="container">
@@ -171,8 +113,7 @@ class App extends Component {
                 </ul>
                 {this.state.showLoading ? <div className="loading-text"> Wait for it...<span role="img" aria-label="dancing figures">💃💃💃</span></div>: ''}
                 <div style={{minHeight: '480px', margin: '50px auto', maxWidth:'1000px', width:'100%'}}>
-                    {this.state.showChart ? <h5>{this.state.selectedTrack.name} by {this.state.selectedTrack.primary_artist}</h5> : ''}
-                    {this.state.showChart ? <SChart ref={this.child} labels={this.state.chartLabels} values={this.state.chartValue} /> : ''}
+                    {this.state.showChart ?  chartContent : ''}
                 </div>
             </div>
         </div>

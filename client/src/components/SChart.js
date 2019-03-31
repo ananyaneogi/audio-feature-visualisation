@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Chart from 'chart.js';
 
-export default class SChart extends Component {
+export default class MusicChart extends Component {
     constructor(props) {
         super(props);
         this.chartRef = React.createRef();

@@ -3,16 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
     "chart.js": "^2.8.0",
-    "d3": "^5.9.2",
     "node-sass": "^4.11.0",
     "react": "^16.8.6",
     "react-charts": "^2.0.0-alpha.12",
     "react-dom": "^16.8.6",
-    "react-move": "^5.2.1",
-    "react-scripts": "2.1.8",
-    "request": "^2.88.0"
+    "react-scripts": "2.1.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +19,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-    "proxy": "http://localhost:5001",
+  "proxy": "http://localhost:5001",
   "browserslist": [
     ">0.2%",
     "not dead",
