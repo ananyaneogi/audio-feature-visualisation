@@ -95,9 +95,9 @@ class App extends Component {
     return (
         <div className="App">
             <div className="container">
-                <h1>Search for a track & get it's audio features!</h1>
+                <h1>Audio Features Visualisation!</h1>
                 <div className="search-container">
-                        <label htmlFor="search">Search for track...</label>
+                    <label htmlFor="search">Search for a music track to get it's features...</label>
                         <input id="search" value={this.state.searchTerm} onChange={(e) => this.handleInputChange(e)}></input>
                         <button type="submit" onClick={this.searchMusic}>SEARCH</button>
                 </div>
